@@ -7,7 +7,6 @@ public class Teleport : MonoBehaviour
 
     public Transform destionation;
     public GameObject bridge;
-
     private Coroutine teleportCoroutine;
 
 
