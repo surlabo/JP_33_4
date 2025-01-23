@@ -8,37 +8,23 @@ public class Teleport : MonoBehaviour
     public Transform destionation;
     public GameObject bridge;
 
-
     private Coroutine teleportCoroutine;
 
 
-
-
-
-    //private void OnTriggerEnter(Collider other)
-    //{
-    //    if(other.gameObject.tag == "Portal")
-    //    {
-    //        TeleportPlayer();
-    //    }
-    //}
 
     private void OnTriggerEnter(Collider other)
     {
         Debug.Log("OnTriggerEnter");
         if (other.gameObject.tag == "Portal")
         {
-            teleportCoroutine = StartCoroutine(TimeBeforeTeleport(3));
-            
+            TeleportPlayer();
         }
     }
 
-  
 
     private void OnTriggerStay(Collider other)
     {
-        Debug.Log("OnTriggerStay");
-        
+        // Debug.Log("OnTriggerStay"); 
     }
 
     private void OnTriggerExit(Collider other)
@@ -53,18 +39,8 @@ public class Teleport : MonoBehaviour
         }
     }
 
-    IEnumerator TimeBeforeTeleport(float teleportTime)
-    {
-        yield return new WaitForSeconds(teleportTime);
-        TeleportPlayer();
-    }
     void TeleportPlayer()
     {
         transform.position = destionation.position;
     }
-
-
-    
-
-
 }

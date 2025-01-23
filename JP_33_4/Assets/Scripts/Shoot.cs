@@ -5,15 +5,16 @@ using UnityEngine;
 public class Shoot : MonoBehaviour
 {
     public GameObject bullet;
-    public Transform spawnPosition;
+    public Transform spawnPoint;
     public float force;
 
-    private void Update()
+
+    void Update()
     {
         if (Input.GetKeyDown(KeyCode.Mouse0))
         {
-            var bulletClone = Instantiate(bullet, spawnPosition.position, spawnPosition.rotation);
-            bulletClone.GetComponent<Rigidbody>().AddForce(spawnPosition.forward * force);
+            var b = Instantiate(bullet, spawnPoint.position, spawnPoint.rotation);
+            b.GetComponent<Rigidbody>().AddForce(spawnPoint.forward * force);
         }
     }
 }
