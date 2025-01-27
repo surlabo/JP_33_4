@@ -20,7 +20,7 @@ public class BallManager : MonoBehaviour
     private void Start()
     {
         rb = gameObject.GetComponent<Rigidbody>();
-        StartCoroutine(Logger());
+       // StartCoroutine(Logger());
     }
 
     private void Update()
@@ -36,7 +36,7 @@ public class BallManager : MonoBehaviour
 
 
         PlayerRotation();
-
+       
         
     }
 
@@ -83,6 +83,15 @@ public class BallManager : MonoBehaviour
     {
         collision.gameObject.GetComponent<MeshRenderer>().material.color = defaultColor;
         isGrounded = false;
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        if(other.tag == "Spawn")
+        {
+
+            PlayerPrefs.SetInt("Level", other.gameObject.GetComponent<SpawnPoint>().level);
+        }
     }
 }
 

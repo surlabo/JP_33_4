@@ -4,25 +4,16 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    float startTime = 50;
+    public Transform[] spawnPoints;
+    public GameObject Player;
 
 
 
     private void Start()
     {
-        StartCoroutine(timer());
+        Player.transform.position = spawnPoints[PlayerPrefs.GetInt("Level")].position;
     }
 
 
-
-    IEnumerator timer()
-    {
-        while (startTime != 0)
-        {
-            yield return new WaitForSeconds(1);
-            startTime--;
-            // Debug.Log(startTime);
-        }
-    }
 
 }
