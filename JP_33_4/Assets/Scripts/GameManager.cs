@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public Transform[] spawnPoints;
+    public List<Transform> spawnPoints;
     public GameObject Player;
+    public Teleport tp;
 
 
 
     private void Start()
     {
-        Player.transform.position = spawnPoints[PlayerPrefs.GetInt("Level")].position;
+        if (PlayerPrefs.HasKey("Level"))
+        {
+            var id = PlayerPrefs.GetInt("Level");
+            Player.transform.position = spawnPoints[id].position;
+        }
     }
-
-
-
 }
+

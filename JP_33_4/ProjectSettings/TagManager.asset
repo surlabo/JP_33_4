@@ -7,6 +7,7 @@ TagManager:
   - Floor
   - Portal
   - Bridge
+  - Spawn
   layers:
   - Default
   - TransparentFX

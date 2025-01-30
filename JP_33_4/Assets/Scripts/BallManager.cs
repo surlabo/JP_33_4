@@ -36,8 +36,8 @@ public class BallManager : MonoBehaviour
 
 
         PlayerRotation();
-       
-        
+
+        Jump();
     }
 
     void PlayerMovement(float newSpeed)
@@ -52,7 +52,7 @@ public class BallManager : MonoBehaviour
 
     void Jump()
     {
-        if (Input.GetKeyDown(KeyCode.Space) && isGrounded)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
             rb.AddForce(0, jumpForce, 0);
         }
@@ -89,8 +89,8 @@ public class BallManager : MonoBehaviour
     {
         if(other.tag == "Spawn")
         {
-
-            PlayerPrefs.SetInt("Level", other.gameObject.GetComponent<SpawnPoint>().level);
+            var level = other.gameObject.GetComponent<SpawnPointA>().level;
+            PlayerPrefs.SetInt("Level", level);
         }
     }
 }

@@ -6,12 +6,16 @@ using UnityEngine.UI;
 
 public class UIManager : MonoBehaviour
 {
+    public Slider slider;
+    public GameObject myImage;
+    public Transform parent;
+            
     int score = 0;
     public TMP_Text ScoreText;
 
-    public void Update()
+    private void Start()
     {
-       
+        Instantiate(myImage, parent);
     }
 
 
@@ -19,5 +23,10 @@ public class UIManager : MonoBehaviour
     {
         score += 10;
         ScoreText.text = score.ToString() + "$";
+    }
+
+    public void OnSliderValueChange()
+    {
+        Debug.Log(slider.value);
     }
 }
