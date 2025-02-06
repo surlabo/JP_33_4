@@ -11,7 +11,6 @@ public class UIManager : MonoBehaviour
     public GameObject myImage;
     public Transform parent;
     public Button CreateButton;
-    public Toggle myToggle;
     public Slider sl;
 
 
@@ -22,7 +21,6 @@ public class UIManager : MonoBehaviour
     private void Start()
     {
         CreateButton.onClick.AddListener(OnImageCreateButtonClick);
-        myToggle.onValueChanged.AddListener(Rame);
         Instantiate(myImage, parent);
     }
 
