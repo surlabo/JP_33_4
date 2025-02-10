@@ -5,13 +5,10 @@ using UnityEngine;
 public class RaycastDemo : MonoBehaviour
 {
 
-
     void Update()
     {
-        RaycastHit hit;
-        if (Physics.Raycast(transform.position, transform.forward, out hit))
+        if (Physics.Raycast(transform.position, transform.forward, out RaycastHit hit))
         {
-
             Debug.Log(hit.transform.name);
         }
         else
@@ -20,6 +17,6 @@ public class RaycastDemo : MonoBehaviour
         }
     }
 
-
+    
 
 }
