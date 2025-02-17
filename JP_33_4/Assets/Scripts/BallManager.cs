@@ -42,7 +42,7 @@ public class BallManager : MonoBehaviour
 
     void PlayerMovement(float newSpeed)
     {
-        transform.Translate(Input.GetAxis("Vertical") * newSpeed * Time.deltaTime, 0, 0);
+        transform.Translate(0, 0, Input.GetAxis("Vertical") * newSpeed * Time.deltaTime);
     }
 
     void PlayerRotation()
