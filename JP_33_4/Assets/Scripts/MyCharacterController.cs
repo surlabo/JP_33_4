@@ -5,9 +5,8 @@ using UnityEngine;
 
 public class MyCharacterController : MonoBehaviour
 {
-    public Animator controller;
-
-    public float runningSpeed;
+    [SerializeField] private Animator controller;
+    [SerializeField] private float runningSpeed;
    
 
     void Update()
@@ -24,14 +23,27 @@ public class MyCharacterController : MonoBehaviour
 
         PlayerMovement();
         PlayerRotation();
+        Punch();
+    }
+
+    void Punch()
+    {
+        if (Input.GetKeyDown(KeyCode.Mouse0))
+        {
+
+
+            controller.SetTrigger("Punch");
+        }
     }
 
     void PlayerMovement()
     {
         var movementDir = Input.GetAxis("Vertical");
-        transform.Translate(0, 0, Input.GetAxis("Vertical") * runningSpeed * Time.deltaTime);
-        Debug.Log(movementDir);
+
+        transform.Translate(0, 0, movementDir * runningSpeed * Time.deltaTime);
+
         var animSpeed = Mathf.Lerp(controller.GetFloat("Blend"), movementDir, Time.deltaTime * 100);
+
         controller.SetFloat("Blend", animSpeed);
     }
 
